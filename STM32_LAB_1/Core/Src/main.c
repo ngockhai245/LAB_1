@@ -196,13 +196,11 @@ int main(void)
   enum trafficLightState state = R1_G2;
 
   int counter = 3;
+  int time = 5;
 
-  int dem = 0;
   while (1)
   {
-	  if (dem >= 10) dem = 0;
-	  display7SEG(dem++);
-
+	  display7SEG(time);
 	  switch(state){
 	  case R1_G2:
 		  HAL_GPIO_WritePin(R2_GPIO_Port, R2_Pin, SET);
@@ -210,6 +208,7 @@ int main(void)
 		  HAL_GPIO_WritePin(R1_GPIO_Port, R1_Pin, RESET);
 		  HAL_GPIO_WritePin(G2_GPIO_Port, G2_Pin, RESET);
 		  counter--;
+		  time--;
 		  if (counter <= 0){
 			  state = R1_Y2;
 			  counter = 2;
@@ -219,9 +218,11 @@ int main(void)
 		  HAL_GPIO_WritePin(G2_GPIO_Port, G2_Pin, SET);
 		  HAL_GPIO_WritePin(Y2_GPIO_Port, Y2_Pin, RESET);
 		  counter--;
+		  time--;
 		  if (counter <= 0){
 			  state = R2_G1;
 			  counter = 3;
+			  time = 3;
 		  }
 		  break;
 	  case R2_G1:
@@ -230,18 +231,22 @@ int main(void)
 		  HAL_GPIO_WritePin(R2_GPIO_Port, R2_Pin, RESET);
 		  HAL_GPIO_WritePin(G1_GPIO_Port, G1_Pin, RESET);
 		  counter--;
+		  time--;
 		  if (counter <= 0){
 			  state = R2_Y1;
 			  counter = 2;
+			  time = 2;
 		  }
 		  break;
 	  case R2_Y1:
 		  HAL_GPIO_WritePin(G1_GPIO_Port, G1_Pin, SET);
 		  HAL_GPIO_WritePin(Y1_GPIO_Port, Y1_Pin, RESET);
 		  counter--;
+		  time--;
 		  if (counter <= 0){
 			  state = R1_G2;
 			  counter = 3;
+			  time = 5;
 		  }
 		  break;
 	  default:
