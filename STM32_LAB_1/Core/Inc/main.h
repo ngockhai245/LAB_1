@@ -70,6 +70,20 @@ void Error_Handler(void);
 #define Y2_GPIO_Port GPIOA
 #define G2_Pin GPIO_PIN_6
 #define G2_GPIO_Port GPIOA
+#define A_Pin GPIO_PIN_9
+#define A_GPIO_Port GPIOA
+#define B_Pin GPIO_PIN_10
+#define B_GPIO_Port GPIOA
+#define C_Pin GPIO_PIN_11
+#define C_GPIO_Port GPIOA
+#define D_Pin GPIO_PIN_12
+#define D_GPIO_Port GPIOA
+#define E_Pin GPIO_PIN_13
+#define E_GPIO_Port GPIOA
+#define F_Pin GPIO_PIN_14
+#define F_GPIO_Port GPIOA
+#define G_Pin GPIO_PIN_15
+#define G_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
